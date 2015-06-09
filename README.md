@@ -1,8 +1,6 @@
 # Parallax
 A very simple Parallax Script
 
-Requires jQuery to be included.
-
 ## Options
 
 No options are required.  Though Offset will most likely need to be changed depending on the image file.
@@ -46,3 +44,9 @@ CSS
       reverse: true,
       image: 'path/to/image.jpg'
     });
+
+## Other information
+
+Requires jQuery to be included.
+
+Tested in IE 8+, the latest version of Firefox and the latest version of Google Chrome.
