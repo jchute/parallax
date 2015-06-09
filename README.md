@@ -16,6 +16,8 @@ No options are required.  Though Offset will most likely need to be changed depe
 
 ### Basic usage
 
+HTML / Javascript
+
     <script type="text/javascript" src="scripts/parallax.js"></script>
   
     <script type="text/javascript">
@@ -27,7 +29,7 @@ No options are required.  Though Offset will most likely need to be changed depe
 CSS
 
     .yourDiv {
-        background-image: url(/path/to/image.jpg); /* Only Background Position is effected */
+        background: url(/path/to/image.jpg) no-repeat #000000; /* Only the Background Position is effected by this script */
     }
     
 ### Set image in declaration
