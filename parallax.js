@@ -8,7 +8,7 @@
     $.fn.parallax = function(options) {
 		
         var settings = $.extend( {
-            'offset':  200,
+            'offset':  0,
             'speed':   0.4,
             'reverse': false,
             'image':   ''
