@@ -7,7 +7,7 @@ No options are required.  Though Offset will most likely need to be changed depe
 
 | Option  |  Type   | Default | Description |
 |---------|---------|---------|-------------|
-| offset  | Integer |   200   | Sets the intial position of the image.  Effected by the height of image, speed and direciton. |
+| offset  | Integer |    0    | Sets the intial position of the image.  Effected by the height of image, speed and direciton. |
 |  speed  | Integer |   0.4   | Sets the speed at which the image moves in relation to the browser's scroll. 0 is static. |
 | reverse | Boolean |  false  | Sets the direction of the scroll. True is the same direction as the scroll. False is against the scroll. |
 |  image  | String  |   ''    | Sets the background image to use.  *Note that this can be set with CSS if preferred.* |
