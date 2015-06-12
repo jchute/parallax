@@ -18,7 +18,7 @@ No options are required.  Though Offset will most likely need to be changed depe
 
 HTML / Javascript
 
-    <script type="text/javascript" src="scripts/parallax.js"></script>
+    <script type="text/javascript" src="path/to/parallax.js"></script>
   
     <script type="text/javascript">
     $(document).ready(function(){
