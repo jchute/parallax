@@ -21,7 +21,7 @@
         });
 
         function theParallax(){
-            var scrolled = $(window).scrollTop();
+            var scrolled = $(window).scrollTop() - parallaxObj.offset().top;
             var position = scrolled * settings.speed - settings.offset;
             
             if(settings.reverse) position *= -1;
