@@ -1,20 +1,23 @@
 /*
-  Version: 1.0
+  Version: 1.2
   Developer: Jonathan Chute
   Year: 2015
 */
 
 (function( $ ) {
     $.fn.parallax = function(options) {
+        
+        var parallaxObj = $(this);
 		
         var settings = $.extend( {
             'offset':  0,
             'speed':   0.4,
             'reverse': false,
-            'image':   ''
+            'image':   '',
+            'posX': parallaxObj.css("background-position").split(" ")[0]
         }, options);
-        
-        var parallaxObj = $(this);
+
+        theParallax();
 
         $(window).scroll(function(e){
             theParallax();
@@ -28,7 +31,7 @@
             
             if(settings.image != '') parallaxObj.css('background-image', 'url(' + settings.image + ')');
 
-            parallaxObj.css('background-position', '50% ' + position + "px");
+            parallaxObj.css('background-position', settings.posX + ' ' + position + "px");
         }
         
     };
