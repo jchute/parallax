@@ -14,7 +14,7 @@
             'speed':   0.4,
             'reverse': false,
             'image':   '',
-            'posX': parallaxObj.css("background-position").split(" ")[0]
+            'posX': getPosX(parallaxObj)
         }, options);
 
         theParallax();
@@ -32,6 +32,16 @@
             if(settings.image != '') parallaxObj.css('background-image', 'url(' + settings.image + ')');
 
             parallaxObj.css('background-position', settings.posX + ' ' + position + "px");
+        }
+        
+        function getPosX(object){
+            var pos = object.css("background-position");
+
+            if(pos == 'undefine' || pos == null || pos == 'top') // For people using IE
+                return parallaxObj.css("background-position-x");
+
+            else // For everyone else
+                return pos.split(" ")[0];
         }
         
     };
