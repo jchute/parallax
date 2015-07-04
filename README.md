@@ -30,7 +30,7 @@ HTML / Javascript
 CSS
 
     .yourDiv {
-        background: url(/path/to/image.jpg) no-repeat #000000; /* Only the Background Position is effected by this script */
+        background: url(/path/to/image.jpg) center top no-repeat #000000; /* Only the second Background Position (Y) is effected by this script */
     }
     
 ### Set image in declaration
