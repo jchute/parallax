@@ -1,5 +1,5 @@
 /*
-  Version: 1.2
+  Version: 1.3
   Developer: Jonathan Chute
   Year: 2015
 */
@@ -8,6 +8,9 @@
     $.fn.parallax = function(options) {
         
         var parallaxObj = $(this);
+        
+        if(parallaxObj[0] === undefined)
+            return;
 		
         var settings = $.extend( {
             'offset':  0,
