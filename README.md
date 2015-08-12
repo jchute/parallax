@@ -11,7 +11,7 @@ No options are required.  Though Offset will most likely need to be changed depe
 |  speed  | Integer |   0.4   | Sets the speed at which the image moves in relation to the browser's scroll. 0 is static. |
 | reverse | Boolean |  false  | Sets the direction of the scroll. True is the same direction as the scroll. False is against the scroll. |
 |  image  | String  |   ''    | Sets the background image to use.  *Note that this can be set with CSS if preferred.* |
-|  posX   | String  |   ''    | Sets the background position X. Accepts any value that background-position uses in CSS. *Note that this will use the position definied in the CSS if left blank.* |
+|  posX   | String  |   ''    | Sets the background position X. Accepts any value that background-position uses in CSS. *Note that this will use the position defined in the CSS if left blank.* |
 
 ## Examples:
 
