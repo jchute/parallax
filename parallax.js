@@ -1,4 +1,5 @@
 /*
+  Parallax
   Version: 1.3
   Developer: Jonathan Chute
   Year: 2015
