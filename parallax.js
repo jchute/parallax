@@ -1,52 +1,90 @@
 /*
   Parallax
-  Version: 1.3
+  Version: 2.0
   Developer: Jonathan Chute
-  Year: 2015
+  Year: 2019
 */
 
 (function( $ ) {
-    $.fn.parallax = function(options) {
-        
-        var parallaxObj = $(this);
-        
-        if(parallaxObj[0] === undefined)
+    $.fn.parallax = function( options ) {
+        let object = $(this);
+
+        if ( object[0] === undefined ) {
             return;
-		
-        var settings = $.extend( {
-            'offset':  0,
-            'speed':   0.4,
+        }
+
+        let settings = $.extend( {
+            'offset': 0,
+            'speed': 0.4,
             'reverse': false,
-            'image':   '',
-            'posX': getPosX(parallaxObj)
-        }, options);
+            'image': '',
+            'posX': getPosX( object ),
+        }, options );
 
-        theParallax();
+        if ( settings.image != '' ) {
+            object.css('background-image', 'url(' + settings.image + ')');
+        }
 
-        $(window).scroll(function(e){
-            theParallax();
+        theParallax( object );
+
+        $(window).scroll(function() {
+            theParallax( object );
         });
 
-        function theParallax(){
-            var scrolled = $(window).scrollTop() - parallaxObj.offset().top;
-            var position = scrolled * settings.speed - settings.offset;
+        function theParallax( object ) {
+            let win = {
+                top: $(window).scrollTop(),
+                left: $(window).scrollLeft(),
+            };
+            win.bottom = win.top + window.innerWidth;
+            win.right = win.left + window.innerHeight;
+
+            if ( settings.speed == 1 && ! settings.reverse ) {
+                object.css( 'background-attachment', 'fixed' );
+                return true;
+            } else if ( settings.speed == 0 ) {
+                object.css( 'background-attachment', 'scroll' );
+                return true;
+            } else if ( ! inView( object, win ) ) {
+                object.css( 'background-attachment', 'scroll' );
+                return false;
+            }
+
+            let position = ( win.top - object.offset().top ) * settings.speed - settings.offset;
             
-            if(settings.reverse) position *= -1;
-            
-            if(settings.image != '') parallaxObj.css('background-image', 'url(' + settings.image + ')');
+            if ( settings.reverse ) {
+                position = -position;
+            }
 
-            parallaxObj.css('background-position', settings.posX + ' ' + position + "px");
+            object.css( 'background-position', settings.posX + ' ' + position + 'px' );
         }
-        
-        function getPosX(object){
-            var pos = object.css("background-position");
 
-            if(pos == 'undefine' || pos == null || pos == 'top') // For people using IE
-                return parallaxObj.css("background-position-x");
+        function inView( object, win ) {
+            let obj = {
+                top: object.offset().top,
+                left: object.offset().left,
+            };
+            obj.bottom = obj.top + object.outerWidth();
+            obj.right = obj.left + object.outerHeight();
 
-            else // For everyone else
-                return pos.split(" ")[0];
+            let BottomIn = obj.bottom > win.top,
+                RightIn = obj.right > win.left,
+                TopIn = obj.top < win.bottom,
+                LeftIn = obj.left < win.right;
+
+            return ( BottomIn && RightIn && TopIn && LeftIn );
         }
-        
+
+        function getPosX( object ) {
+            let pos = object.css( 'background-position' );
+
+            if ( pos === undefined || pos == null || pos == 'top' ) {
+                // For people using IE
+                return object.css("background-position-x");
+            } else {
+                // For everyone else
+                return pos.split( ' ' )[0];
+            }
+        }
     };
 })( jQuery );
